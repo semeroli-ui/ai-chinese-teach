@@ -33,10 +33,23 @@ export function Header({
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-3">
           <div className={cn(
-            "flex h-10 w-10 items-center justify-center rounded-xl shadow-xl transition-colors duration-500",
-            isDarkMode ? "bg-stone-100 text-stone-900" : "bg-stone-900 text-white"
+            "flex h-10 w-10 items-center justify-center rounded-xl shadow-xl transition-colors duration-500 overflow-hidden",
+            isDarkMode ? "bg-stone-100" : "bg-stone-900"
           )}>
-            <Feather className="h-5 w-5" />
+            <svg viewBox="0 0 32 32" className="h-7 w-7">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: isDarkMode ? '#1c1917' : '#ffffff', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: isDarkMode ? '#44403c' : '#e7e5e4', stopOpacity: 1 }} />
+                </linearGradient>
+              </defs>
+              <g fill="url(#logoGrad)">
+                <path d="M16 4 L17.5 8 L21.5 9.5 L17.5 11 L16 15 L14.5 11 L10.5 9.5 L14.5 8 Z" />
+                <path d="M8 14 Q16 13 24 14 L24 16 Q16 15 8 16 Z" />
+                <path d="M16 16 Q12 22 7 26 L9 28 Q14 24 18 16 Z" />
+                <path d="M16 16 Q20 22 25 26 L23 28 Q18 24 14 16 Z" />
+              </g>
+            </svg>
           </div>
           <div className="flex flex-col">
             <span className={cn(
